@@ -274,7 +274,11 @@ function(bucketname,
         }
     }
     
-    terminal_slash <- endsWith(path, "/")
+    endsWithCustom = function(x, y){
+      substr(x, nchar(x), nchar(x)) == y
+    }
+    
+    terminal_slash <- endsWithCustom(path, "/")
     path <- if (path == "") "/" else {
         paste(sapply(
             strsplit(path, '/')[[1]],

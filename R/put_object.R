@@ -138,6 +138,11 @@ function(file,
 #' @rdname put_object
 #' @export
 put_folder <- function(folder, bucket, ...) {
+  
+    endsWithCustom = function(x, y){
+      substr(x, nchar(x), nchar(x)) == y
+    }
+  
     if (!endsWith(folder, "/")) {
         folder <- paste0(folder, "/")
     }
